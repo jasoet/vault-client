@@ -1,4 +1,4 @@
-module github.com/jasoet/run-vault
+module github.com/jasoet/vault-client
 
 go 1.15
 

@@ -1,9 +1,9 @@
-package vault
+package client
 
 import (
 	"fmt"
 	"github.com/hashicorp/vault/api"
-	"github.com/jasoet/run-vault/util"
+	"github.com/jasoet/vault-client/pkg/util"
 )
 
 type databaseEngine struct {

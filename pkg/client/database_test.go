@@ -1,10 +1,10 @@
 // +build integration
 
-package vault_test
+package client_test
 
 import (
 	"github.com/hashicorp/vault/api"
-	. "github.com/jasoet/run-vault/pkg/vault"
+	. "github.com/jasoet/vault-client/pkg/client"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"

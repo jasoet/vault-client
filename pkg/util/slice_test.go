@@ -2,7 +2,7 @@ package util_test
 
 import (
 	"fmt"
-	. "github.com/jasoet/run-vault/util"
+	. "github.com/jasoet/vault-client/pkg/util"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

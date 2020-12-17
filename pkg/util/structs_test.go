@@ -3,7 +3,7 @@ package util_test
 import (
 	"encoding/json"
 	"fmt"
-	. "github.com/jasoet/run-vault/util"
+	. "github.com/jasoet/vault-client/pkg/util"
 	"github.com/stretchr/testify/require"
 	"testing"
 )

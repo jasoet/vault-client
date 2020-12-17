@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/jasoet/run-vault/pkg/vault"
+	"github.com/jasoet/vault-client/pkg/client"
 	"os"
 )
 
@@ -10,7 +10,7 @@ func main() {
 	_ = os.Setenv("VAULT_ADDR", "http://127.0.0.1:18200")
 	_ = os.Setenv("VAULT_TOKEN", "localhost")
 
-	database, err := vault.DefaultDatabase()
+	database, err := client.DefaultDatabase()
 	if err != nil {
 		panic(err)
 	}
@@ -22,8 +22,8 @@ func main() {
 
 	roleName := "vault-database"
 	connectionName := "vault-default"
-	databaseConfig := vault.DatabaseConfig{
-		Type:          vault.MySQL,
+	databaseConfig := client.DatabaseConfig{
+		Type:          client.MySQL,
 		ConnectionUrl: "{{username}}:{{password}}@tcp(db:3306)/",
 		Username:      "root",
 		Password:      "localhost",
@@ -39,7 +39,7 @@ func main() {
 	config, err := database.ReadConnection(connectionName)
 	fmt.Printf("ReadConnection: %#v\n", config)
 
-	roleConfig := vault.DatabaseRole{
+	roleConfig := client.DatabaseRole{
 		DatabaseName:         connectionName,
 		DefaultTtl:           60,
 		MaxTtl:               600,
@@ -71,7 +71,7 @@ func main() {
 	leases, err := database.ListLease(roleName)
 	fmt.Printf("Leases: %#v, error: %#v\n", leases, err)
 
-	lease, err := vault.DefaultLease()
+	lease, err := client.DefaultLease()
 	if err != nil {
 		panic(err)
 	}

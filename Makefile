@@ -2,8 +2,8 @@
 OUT_DIR := ./_output
 BIN_DIR := ./bin
 
-APP_NAME=run-vault
-PACKAGE=github.com/jasoet/run-vault
+APP_NAME=vault-client
+PACKAGE=github.com/jasoet/vault-client
 CURRENT_DIR=$(shell pwd)
 
 DOCKER_COMPOSE_FILE=$(CURRENT_DIR)/test/docker-compose.yaml
