@@ -15,8 +15,8 @@ type DatabaseConfig struct {
 	Username               string       `json:"username"`
 	Password               string       `json:"password"`
 	AllowedRoles           []string     `json:"allowed_roles"`
-	RootRotationStatements []string     `json:"root_rotation_statements"`
-	PasswordPolicy         string       `json:"password_policy"`
+	RootRotationStatements []string     `json:"root_rotation_statements,omitempty"`
+	PasswordPolicy         string       `json:"password_policy,omitempty"`
 }
 
 type DatabaseSecretStatus struct {
@@ -32,8 +32,8 @@ type DatabaseRole struct {
 	MaxTtl               int      `json:"max_ttl"`
 	CreationStatements   []string `json:"creation_statements"`
 	RevocationStatements []string `json:"revocation_statements"`
-	RollbackStatements   []string `json:"rollback_statements"`
-	RenewStatements      []string `json:"renew_statements"`
+	RollbackStatements   []string `json:"rollback_statements,omitempty"`
+	RenewStatements      []string `json:"renew_statements,omitempty"`
 }
 
 type Creds struct {
