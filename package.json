@@ -5,10 +5,15 @@
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator"
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      ["@semantic-release/exec", {
+        "generateNotesCmd": "echo ${nextRelease.version} > VERSION && echo ${lastRelease.version} > CI_IS_RELEASE && git add VERSION"
+      }]
     ]
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
     "semantic-release": "^17.3.0"
   }
 }
