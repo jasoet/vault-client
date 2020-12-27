@@ -44,3 +44,4 @@ _output/
 bin/
 vendor/
 .idea/
+node_modules/
