@@ -13,6 +13,7 @@
           "generateNotesCmd": "echo ${nextRelease.version} > VERSION && git add VERSION"
         }
       ],
+      "@semantic-release/git",
       "@semantic-release/github"
     ]
   },
