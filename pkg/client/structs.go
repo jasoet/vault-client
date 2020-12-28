@@ -9,6 +9,13 @@ const (
 	PostgreSQL DatabaseType = "postgresql-database-plugin"
 )
 
+type SecretStatus struct {
+	DefaultLeaseTtl int    `json:"default_lease_ttl"`
+	MaxLeaseTtl     int    `json:"max_least_ttl"`
+	Description     string `json:"description"`
+	ForceNoCache    bool   `json:"force_no_cache"`
+}
+
 type DatabaseConfig struct {
 	Type                   DatabaseType `json:"plugin_name"`
 	ConnectionUrl          string       `json:"connection_url"`
@@ -17,13 +24,6 @@ type DatabaseConfig struct {
 	AllowedRoles           []string     `json:"allowed_roles"`
 	RootRotationStatements []string     `json:"root_rotation_statements,omitempty"`
 	PasswordPolicy         string       `json:"password_policy,omitempty"`
-}
-
-type DatabaseSecretStatus struct {
-	DefaultLeaseTtl int    `json:"default_lease_ttl"`
-	MaxLeaseTtl     int    `json:"max_least_ttl"`
-	Description     string `json:"description"`
-	ForceNoCache    bool   `json:"force_no_cache"`
 }
 
 type DatabaseRole struct {
@@ -51,4 +51,17 @@ type LeaseDetail struct {
 	LastRenewalTime time.Time `json:"last_renewal_time"`
 	Renewable       bool      `json:"renewable"`
 	Ttl             int       `json:"ttl"`
+}
+
+type KVConfig struct {
+	MaxVersions        int    `json:"max_versions"`
+	CasRequired        bool   `json:"cas_required"`
+	DeleteVersionAfter string `json:"delete_version_after"` //use go duration format https://golang.org/pkg/time/#ParseDuration
+}
+
+type KVMetadata struct {
+	Version      int       `json:"version"`
+	Destroyed    bool      `json:"destroyed"`
+	DeletionTime time.Time `json:"deletion_time"`
+	CreatedTime  time.Time `json:"created_time"`
 }

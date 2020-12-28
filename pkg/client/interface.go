@@ -3,7 +3,7 @@ package client
 type Database interface {
 	Path() string
 	Enable() error
-	Status() (*DatabaseSecretStatus, error)
+	Status() (*SecretStatus, error)
 
 	CreateConnection(name string, config DatabaseConfig) error
 	ReadConnection(name string) (*DatabaseConfig, error)
@@ -27,4 +27,16 @@ type Lease interface {
 	Revoke(leaseId string) error
 	RevokePrefix(prefix string) error
 	Tidy() error
+}
+
+type KV interface {
+	Path() string
+	Enable() error
+	Status() (*SecretStatus, error)
+
+	WriteConfig(config KVConfig) error
+	ReadConfig() (*KVConfig, error)
+
+	Write(path string, data interface{}) (*KVMetadata, error)
+	Read(path string, result interface{}) (*KVMetadata, error)
 }

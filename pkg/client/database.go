@@ -158,13 +158,13 @@ func (d databaseEngine) Enable() (err error) {
 	return
 }
 
-func (d databaseEngine) Status() (status *DatabaseSecretStatus, err error) {
+func (d databaseEngine) Status() (status *SecretStatus, err error) {
 	result, err := d.vaultClient.Logical().Read(fmt.Sprintf("/sys/mounts/%v/tune", d.path))
 	if err != nil || result == nil {
 		return
 	}
 
-	status = new(DatabaseSecretStatus)
+	status = new(SecretStatus)
 	err = util.MapToStruct(result.Data, status)
 
 	return
