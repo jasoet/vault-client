@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/jasoet/vault-client/compare/v0.3.0...v0.4.0) (2020-12-29)
+
+
+### Features
+
+* add remaning KV engine function, need to add test ([94887fa](https://github.com/jasoet/vault-client/commit/94887fae5230e440411ccc2794d8700daf74c718))
+
 # [0.3.0](https://github.com/jasoet/vault-client/compare/v0.2.0...v0.3.0) (2020-12-28)
 
 
