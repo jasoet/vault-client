@@ -37,6 +37,19 @@ type KV interface {
 	WriteConfig(config KVConfig) error
 	ReadConfig() (*KVConfig, error)
 
-	Write(path string, data interface{}) (*KVMetadata, error)
-	Read(path string, result interface{}) (*KVMetadata, error)
+	Write(path string, input interface{}) (*KVMetadata, error)
+	Read(path string, output interface{}) (*KVMetadata, error)
+	ReadVersion(path string, version int, result interface{}) (*KVMetadata, error)
+
+	ReadMetadata(path string) (*KVHistoryMetadata, error)
+
+	Delete(path string) error
+	DeleteVersions(path string, versions []int) error
+	UndeleteVersions(path string, versions []int) error
+	DestroyVersions(path string, versions []int) error
+
+	List(path string) ([]string, error)
+
+	UpdateMetadata(path string, config KVConfig) error
+	DestroyAll(path string) error
 }

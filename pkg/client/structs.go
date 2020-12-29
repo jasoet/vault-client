@@ -65,3 +65,12 @@ type KVMetadata struct {
 	DeletionTime time.Time `json:"deletion_time"`
 	CreatedTime  time.Time `json:"created_time"`
 }
+
+type KVHistoryMetadata struct {
+	CreatedTime  time.Time `json:"created_time"`
+	CurrentVersion int `json:"current_version"`
+	MaxVersion int `json:"max_version"`
+	OldestVersion int `json:"oldest_version"`
+	UpdatedTime time.Time `json:"updated_time"`
+	Versions map[string]KVMetadata `json:"versions"`
+}
