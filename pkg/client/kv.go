@@ -94,7 +94,10 @@ func (k kvEngine) Read(path string, output interface{}) (metadata *KVMetadata, e
 }
 
 func (k kvEngine) ReadVersion(path string, version int, output interface{}) (metadata *KVMetadata, err error) {
-	secret, err := k.vaultClient.Logical().Read(fmt.Sprintf("%v/data/%v?version=%v", k.path, path, version))
+	data := map[string][]string{
+		"version": {fmt.Sprint(version)},
+	}
+	secret, err := k.vaultClient.Logical().ReadWithData(fmt.Sprintf("%v/data/%v", k.path, path), data)
 	if err != nil || secret == nil {
 		return
 	}
