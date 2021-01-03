@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/jasoet/vault-client/compare/v0.4.0...v0.5.0) (2021-01-03)
+
+
+### Features
+
+* Change Field name for DatabaseRole struct ([f7152c4](https://github.com/jasoet/vault-client/commit/f7152c4fc8003bc0013449850f7d32bb12db8c30))
+
 # [0.4.0](https://github.com/jasoet/vault-client/compare/v0.3.0...v0.4.0) (2020-12-29)
 
 
