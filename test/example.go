@@ -40,7 +40,7 @@ func main() {
 	fmt.Printf("ReadConnection: %#v\n", config)
 
 	roleConfig := client.DatabaseRole{
-		DatabaseName:         connectionName,
+		ConnectionName:       connectionName,
 		DefaultTtl:           60,
 		MaxTtl:               600,
 		CreationStatements:   []string{"CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';", "GRANT SELECT ON *.* TO '{{name}}'@'%';"},

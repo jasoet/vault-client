@@ -55,7 +55,7 @@ func TestLease(t *testing.T) {
 	assert.Nil(t, err)
 
 	roleConfig := DatabaseRole{
-		DatabaseName:         connectionName,
+		ConnectionName:       connectionName,
 		DefaultTtl:           120,
 		MaxTtl:               600,
 		CreationStatements:   []string{"CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';", "GRANT SELECT ON *.* TO '{{name}}'@'%';"},

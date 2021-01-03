@@ -27,7 +27,7 @@ type DatabaseConfig struct {
 }
 
 type DatabaseRole struct {
-	DatabaseName         string   `json:"db_name"`
+	ConnectionName       string   `json:"db_name"`
 	DefaultTtl           int      `json:"default_ttl"`
 	MaxTtl               int      `json:"max_ttl"`
 	CreationStatements   []string `json:"creation_statements"`
@@ -67,10 +67,10 @@ type KVMetadata struct {
 }
 
 type KVHistoryMetadata struct {
-	CreatedTime  time.Time `json:"created_time"`
-	CurrentVersion int `json:"current_version"`
-	MaxVersion int `json:"max_version"`
-	OldestVersion int `json:"oldest_version"`
-	UpdatedTime time.Time `json:"updated_time"`
-	Versions map[string]KVMetadata `json:"versions"`
+	CreatedTime    time.Time             `json:"created_time"`
+	CurrentVersion int                   `json:"current_version"`
+	MaxVersion     int                   `json:"max_version"`
+	OldestVersion  int                   `json:"oldest_version"`
+	UpdatedTime    time.Time             `json:"updated_time"`
+	Versions       map[string]KVMetadata `json:"versions"`
 }

@@ -95,7 +95,7 @@ func TestDatabase(t *testing.T) {
 	})
 
 	roleConfig := DatabaseRole{
-		DatabaseName:         connectionName,
+		ConnectionName:       connectionName,
 		DefaultTtl:           60,
 		MaxTtl:               600,
 		CreationStatements:   []string{"CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';", "GRANT SELECT ON *.* TO '{{name}}'@'%';"},
@@ -111,7 +111,7 @@ func TestDatabase(t *testing.T) {
 		detail, err := database.ReadRole(roleName)
 		assert.Nil(t, err)
 		assert.NotNil(t, detail)
-		assert.Equal(t, roleConfig.DatabaseName, detail.DatabaseName)
+		assert.Equal(t, roleConfig.ConnectionName, detail.ConnectionName)
 		assert.Equal(t, roleConfig.DefaultTtl, detail.DefaultTtl)
 		assert.Equal(t, roleConfig.MaxTtl, detail.MaxTtl)
 	})
