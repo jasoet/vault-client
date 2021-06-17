@@ -47,8 +47,8 @@ type Creds struct {
 type LeaseDetail struct {
 	LeaseId         string    `json:"id"`
 	IssueTime       time.Time `json:"issue_time"`
-	ExpiredTime     time.Time `json:"expired_time"`
-	LastRenewalTime time.Time `json:"last_renewal_time"`
+	ExpiredTime     *time.Time `json:"expire_time"`
+	LastRenewalTime *time.Time `json:"last_renewal_time"`
 	Renewable       bool      `json:"renewable"`
 	Ttl             int       `json:"ttl"`
 }
@@ -62,7 +62,7 @@ type KVConfig struct {
 type KVMetadata struct {
 	Version      int       `json:"version"`
 	Destroyed    bool      `json:"destroyed"`
-	DeletionTime time.Time `json:"deletion_time"`
+	DeletionTime *time.Time `json:"deletion_time"`
 	CreatedTime  time.Time `json:"created_time"`
 }
 
@@ -71,6 +71,6 @@ type KVHistoryMetadata struct {
 	CurrentVersion int                   `json:"current_version"`
 	MaxVersion     int                   `json:"max_version"`
 	OldestVersion  int                   `json:"oldest_version"`
-	UpdatedTime    time.Time             `json:"updated_time"`
+	UpdatedTime    *time.Time             `json:"updated_time"`
 	Versions       map[string]KVMetadata `json:"versions"`
 }
