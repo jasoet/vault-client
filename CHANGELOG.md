@@ -1,3 +1,10 @@
+## [0.5.1](https://github.com/jasoet/vault-client/compare/v0.5.0...v0.5.1) (2021-06-18)
+
+
+### Bug Fixes
+
+* Time mapping and type ([6ef4bcd](https://github.com/jasoet/vault-client/commit/6ef4bcda09bba1757217051a64b9b9e83fec74be))
+
 # [0.5.0](https://github.com/jasoet/vault-client/compare/v0.4.0...v0.5.0) (2021-01-03)
 
 
